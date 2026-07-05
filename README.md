@@ -9,6 +9,7 @@
 - [Prerequisites](#prerequisites)
 - [Install](#install)
 - [Run](#run)
+- [Validation](#validation)
 - [Configuration](#configuration)
 - [Frontend Assets Policy](#frontend-assets-policy)
 - [API Endpoints](#api-endpoints)
@@ -62,6 +63,22 @@ npm run server:prod
 ```
 
 The application entry point is [server.js](server.js).
+
+## Validation
+
+- Run the lightweight backend syntax check:
+
+```bash
+npm run check
+```
+
+- Optional manual security check:
+
+```bash
+npm audit --omit=dev
+```
+
+The GitHub Actions workflow runs `npm ci` and `npm run check` only. It does not require MongoDB, external services, or real secrets.
 
 ## Configuration
 

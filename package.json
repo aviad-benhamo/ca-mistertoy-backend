@@ -7,7 +7,8 @@
     "scripts": {
         "start": "node server.js",
         "server:dev": "nodemon --ignore \"./data\" server.js",
-        "server:prod": "set NODE_ENV=production&&node server.js"
+        "server:prod": "set NODE_ENV=production&&node server.js",
+        "check": "node scripts/check.mjs"
     },
     "author": "Aviad Ben Hamo",
     "license": "MIT",
