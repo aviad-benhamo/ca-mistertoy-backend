@@ -1,14 +1,16 @@
 # MisterToy - Backend
 
-> Backend for the MisterToy toy-store project (Express + Node).
+> Backend API for the MisterToy Coding Academy project.
 
 ## Table of Contents
+
 - [Project](#project)
 - [Tech Stack](#tech-stack)
 - [Prerequisites](#prerequisites)
 - [Install](#install)
 - [Run](#run)
 - [Configuration](#configuration)
+- [Frontend Assets Policy](#frontend-assets-policy)
 - [API Endpoints](#api-endpoints)
 - [Project Structure](#project-structure)
 - [Data](#data)
@@ -18,25 +20,27 @@
 
 This repository contains the backend API for MisterToy. It provides toy management, user management, and authentication endpoints used by the frontend.
 
+The frontend source code lives in a separate project. This backend repository serves the built frontend output that is copied into `public/` during the frontend build workflow.
+
 ## Tech Stack
 
 - Node.js (ES modules)
 - Express
 - MongoDB (driver)
-- Other libs: `bcrypt`, `cookie-parser`, `cors`, `cryptr`, `dotenv`
+- Other libraries: `bcrypt`, `cookie-parser`, `cors`, `cryptr`, `dotenv`
 
 ## Prerequisites
 
 - Node.js 20.19.0+ / npm
-- (Optional) MongoDB if using a real DB; this project includes a `data/` JSON store for local development.
+- (Optional) MongoDB if using a real database
 
 The recommended local runtime is defined in `.nvmrc`.
 
 ## Install
 
-1. Clone the repo
-2. Use the recommended Node.js version from `.nvmrc`
-3. Install dependencies:
+1. Clone the repository.
+2. Use the recommended Node.js version from `.nvmrc`.
+3. Install dependencies.
 
 ```bash
 npm install
@@ -57,11 +61,11 @@ npm run server:dev
 npm run server:prod
 ```
 
-The app entry is [server.js](server.js).
+The application entry point is [server.js](server.js).
 
 ## Configuration
 
-Configuration files are in the `config/` folder (`config/dev.js`, `config/prod.js`, `config/index.js`).
+Configuration files are in `config/` (`config/dev.js`, `config/prod.js`, `config/index.js`).
 
 Create a local `.env` file from `.env.example` when environment-specific values are needed:
 
@@ -71,12 +75,19 @@ cp .env.example .env
 
 Environment variables:
 
-- `PORT`: optional server port. Defaults to `3030`.
+- `PORT`: Optional server port. Defaults to `3030`.
 - `MONGO_URL`: MongoDB connection string. Required when `NODE_ENV=production`; defaults to local MongoDB in development.
-- `MONGO_DB_NAME`: optional database name. Defaults to `MisterToyDB`.
-- `SECRET1`: login-token encryption secret. Required when `NODE_ENV=production`.
+- `MONGO_DB_NAME`: Optional database name. Defaults to `MisterToyDB`.
+- `SECRET1`: Login-token encryption secret. Required when `NODE_ENV=production`.
 
 Do not commit `.env` or real credentials.
+
+## Frontend Assets Policy
+
+- `public/` is intentionally tracked because this backend serves the frontend build output in production.
+- `public/index.html` and `public/assets/` are deployment artifacts copied from the separate frontend project.
+- Do not edit built frontend files in this repository by hand. Rebuild them from the frontend project when the UI changes.
+- Do not place secrets, private tokens, or environment-specific credentials in tracked frontend assets.
 
 ## API Endpoints
 
@@ -84,35 +95,35 @@ Base URL: `/api`
 
 Auth
 
-- POST `/api/auth/login` — login a user
-- POST `/api/auth/signup` — create a new user
-- POST `/api/auth/logout` — logout
+- `POST /api/auth/login` - Log in a user
+- `POST /api/auth/signup` - Create a new user
+- `POST /api/auth/logout` - Log out
 
 Toys
 
-- GET `/api/toy/` — get list of toys
-- GET `/api/toy/:id` — get toy by id
-- POST `/api/toy/` — add a toy (admin only)
-- PUT `/api/toy/` — update a toy (admin only)
-- DELETE `/api/toy/:id` — delete a toy (admin only)
-- POST `/api/toy/:id/msg` — add a message to a toy (authenticated users)
-- DELETE `/api/toy/:id/msg/:msgId` — remove a message (authenticated users)
+- `GET /api/toy/` - Get the toy list
+- `GET /api/toy/:id` - Get a toy by id
+- `POST /api/toy/` - Add a toy (admin only)
+- `PUT /api/toy/` - Update a toy (admin only)
+- `DELETE /api/toy/:id` - Delete a toy (admin only)
+- `POST /api/toy/:id/msg` - Add a message to a toy (authenticated users)
+- `DELETE /api/toy/:id/msg/:msgId` - Remove a message (authenticated users)
 
 Users
 
-- GET `/api/user/` — get list of users
-- GET `/api/user/:id` — get user by id
-- PUT `/api/user/:id` — update user
-- DELETE `/api/user/:id` — delete user
+- `GET /api/user/` - Get the user list
+- `GET /api/user/:id` - Get a user by id
+- `PUT /api/user/:id` - Update a user
+- `DELETE /api/user/:id` - Delete a user
 
 Notes
 
-- Protected routes use middlewares in `middlewares/` (`requireAuth.middleware.js`, `logger.middleware.js`).
-- See route files in `api/*/` for exact handlers.
+- Protected routes use middleware in `middlewares/` such as `requireAuth.middleware.js` and `logger.middleware.js`.
+- See the route files in `api/` for exact handlers.
 
 ## Example Requests
 
-- Login (curl):
+- Login:
 
 ```bash
 curl -X POST http://localhost:3030/api/auth/login \
@@ -128,20 +139,22 @@ curl http://localhost:3030/api/toy
 
 ## Project Structure
 
-- [server.js](server.js) — app entry
-- [api/](api/) — route folders for `auth`, `toy`, `user`
-- [config/](config/) — environment configs
-- [data/toys.json](data/toys.json) — sample data store
-- [services/](services/) — helper services (db, util, logger)
-- [middlewares/](middlewares/) — auth/logger middlewares
+- [server.js](server.js) - App entry
+- [api/](api/) - Route folders for `auth`, `toy`, and `user`
+- [config/](config/) - Environment configs
+- [public/](public/) - Tracked frontend build output served by the backend
+- [services/](services/) - Helper services such as db, util, and logger
+- [middlewares/](middlewares/) - Auth and logger middleware
 
 ## Data
 
-The repo includes a simple JSON data file for quick local development: `data/toys.json`.
+- Local `data/` and `logs/` folders are ignored and are not part of the shared repository baseline.
+- If local sample data is needed, create it locally and do not assume it exists for other developers.
 
 ## Contributing
 
-Feel free to open issues and PRs. For local development, use the `start` script.
+Feel free to open issues and pull requests. For local development, use the provided npm scripts.
 
 ---
+
 Created for the MisterToy course project.
