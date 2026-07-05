@@ -10,6 +10,7 @@
 - [Install](#install)
 - [Run](#run)
 - [Validation](#validation)
+- [Release Policy](#release-policy)
 - [Configuration](#configuration)
 - [Frontend Assets Policy](#frontend-assets-policy)
 - [API Endpoints](#api-endpoints)
@@ -79,6 +80,15 @@ npm audit --omit=dev
 ```
 
 The GitHub Actions workflow runs `npm ci` and `npm run check` only. It does not require MongoDB, external services, or real secrets.
+
+## Release Policy
+
+- Current repository status: Experimental / Not Ready
+- Current package version policy: `0.x` SemVer while the project remains pre-release
+- Current baseline version: `0.1.0`
+- Future Git tags must use the format `vMAJOR.MINOR.PATCH`
+- `CHANGELOG.md` keeps upcoming work under `[Unreleased]` until an explicit release-preparation step moves entries into a numbered version
+- Do not create Git tags, GitHub Releases, or publish a release until the final GRS audit passes and release work is explicitly approved
 
 ## Configuration
 
