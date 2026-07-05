@@ -1,5 +1,5 @@
 {
-    "name": "mistertoy-backend",
+    "name": "ca-mistertoy-backend",
     "version": "1.0.0",
     "description": "mister toy project",
     "main": "server.js",
