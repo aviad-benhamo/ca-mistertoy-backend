@@ -58,7 +58,22 @@ The app entry is [server.js](server.js).
 
 ## Configuration
 
-Configuration files are in the `config/` folder (`config/dev.js`, `config/prod.js`, `config/index.js`). Environment variables (if used) should be configured before running production.
+Configuration files are in the `config/` folder (`config/dev.js`, `config/prod.js`, `config/index.js`).
+
+Create a local `.env` file from `.env.example` when environment-specific values are needed:
+
+```bash
+cp .env.example .env
+```
+
+Environment variables:
+
+- `PORT`: optional server port. Defaults to `3030`.
+- `MONGO_URL`: MongoDB connection string. Required when `NODE_ENV=production`; defaults to local MongoDB in development.
+- `MONGO_DB_NAME`: optional database name. Defaults to `MisterToyDB`.
+- `SECRET1`: login-token encryption secret. Required when `NODE_ENV=production`.
+
+Do not commit `.env` or real credentials.
 
 ## API Endpoints
 

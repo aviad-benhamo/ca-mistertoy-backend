@@ -11,7 +11,8 @@ export const authService = {
     validateToken
 }
 
-const cryptr = new Cryptr(process.env.SECRET1 || 'Secret-Puk-1234')
+const loginTokenSecret = process.env.SECRET1 || _getDevLoginTokenSecret()
+const cryptr = new Cryptr(loginTokenSecret)
 
 async function login(username, password) {
     logger.debug(`auth.service - login with username: ${username}`)
@@ -50,4 +51,11 @@ function validateToken(loginToken) {
         console.log('Invalid login token')
     }
     return null
+}
+
+function _getDevLoginTokenSecret() {
+    if (process.env.NODE_ENV === 'production') {
+        throw new Error('SECRET1 is required when NODE_ENV=production')
+    }
+    return 'dev-only-login-token-secret'
 }

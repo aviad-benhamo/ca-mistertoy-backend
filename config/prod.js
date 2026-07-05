@@ -1,4 +1,10 @@
+const { MONGO_URL } = process.env
+
+if (!MONGO_URL) {
+    throw new Error('MONGO_URL is required when NODE_ENV=production')
+}
+
 export default {
-    dbURL: process.env.MONGO_URL || 'mongodb+srv://theUser:thePass@cluster0-klgzh.mongodb.net/MisterToyDB?retryWrites=true&w=majority',
-    dbName: 'MisterToyDB',
+    dbURL: MONGO_URL,
+    dbName: process.env.MONGO_DB_NAME || 'MisterToyDB',
 }
