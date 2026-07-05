@@ -27,13 +27,16 @@ This repository contains the backend API for MisterToy. It provides toy manageme
 
 ## Prerequisites
 
-- Node.js 16+ / npm
+- Node.js 20.19.0+ / npm
 - (Optional) MongoDB if using a real DB; this project includes a `data/` JSON store for local development.
+
+The recommended local runtime is defined in `.nvmrc`.
 
 ## Install
 
 1. Clone the repo
-2. Install dependencies:
+2. Use the recommended Node.js version from `.nvmrc`
+3. Install dependencies:
 
 ```bash
 npm install
@@ -41,13 +44,13 @@ npm install
 
 ## Run
 
-- Start in development (with `nodemon`):
+- Start the server:
 
 ```bash
 npm run start
 ```
 
-- Other available scripts (from `package.json`):
+- Development and production scripts:
 
 ```bash
 npm run server:dev

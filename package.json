@@ -1,16 +1,35 @@
 {
     "name": "ca-mistertoy-backend",
-    "version": "1.0.0",
-    "description": "mister toy project",
+    "version": "0.1.0",
+    "description": "Backend API for the MisterToy Coding Academy project.",
     "main": "server.js",
     "type": "module",
     "scripts": {
-        "start": "nodemon --ignore \"./data\" server.js",
-        "server:dev": "nodemon server.js",
+        "start": "node server.js",
+        "server:dev": "nodemon --ignore \"./data\" server.js",
         "server:prod": "set NODE_ENV=production&&node server.js"
     },
     "author": "Aviad Ben Hamo",
     "license": "MIT",
+    "keywords": [
+        "mistertoy",
+        "coding-academy",
+        "backend",
+        "express",
+        "mongodb",
+        "rest-api"
+    ],
+    "engines": {
+        "node": ">=20.19.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/aviad-benhamo/ca-mistertoy-backend.git"
+    },
+    "bugs": {
+        "url": "https://github.com/aviad-benhamo/ca-mistertoy-backend/issues"
+    },
+    "homepage": "https://github.com/aviad-benhamo/ca-mistertoy-backend#readme",
     "dependencies": {
         "bcrypt": "^6.0.0",
         "cookie-parser": "^1.4.7",
@@ -19,5 +38,8 @@
         "dotenv": "^17.2.3",
         "express": "^5.2.1",
         "mongodb": "^7.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
     }
 }
