@@ -9,12 +9,13 @@
 
 ## Project Status
 
-- State: Experimental / Not Ready
+- State: Experimental / Released
 - Repository type: Coding Academy backend/API project
-- Release policy: Pre-release `0.x` Semantic Versioning until the final GRS audit passes
+- Approved release baseline: `v0.1.0`
+- Release policy: Semantic Versioning with `vMAJOR.MINOR.PATCH` Git tags for GitHub Releases
 - Current package version: `0.1.0`
 
-This repository is usable for development work, but it is not yet considered release-ready.
+This repository has an approved `v0.1.0` release documentation baseline while remaining experimental for ongoing hardening and maintenance work.
 
 ## Overview
 
@@ -32,6 +33,7 @@ Related repository documents:
 
 - [SECURITY.md](SECURITY.md)
 - [CHANGELOG.md](CHANGELOG.md)
+- [RELEASE_NOTES_v0.1.0.md](RELEASE_NOTES_v0.1.0.md)
 - [LICENSE](LICENSE)
 
 ## Features
@@ -275,12 +277,12 @@ curl -X POST http://localhost:3030/api/auth/login \
 ## Roadmap
 
 - Keep upcoming released work staged under `[Unreleased]` in [CHANGELOG.md](CHANGELOG.md)
-- Continue repository hardening until the final GRS audit can move the project out of Experimental / Not Ready
+- Continue repository hardening beyond the approved `v0.1.0` baseline
 - Keep the backend/frontend integration workflow documented while the frontend repository is still being standardized
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for the release history and the current `[Unreleased]` work queue.
+See [CHANGELOG.md](CHANGELOG.md) for the release history and the current `[Unreleased]` work queue. For the approved first release package, see [RELEASE_NOTES_v0.1.0.md](RELEASE_NOTES_v0.1.0.md).
 
 ## License
 

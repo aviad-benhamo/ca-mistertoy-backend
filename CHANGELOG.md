@@ -6,11 +6,14 @@ The format is based on Keep a Changelog, with the repository using Semantic Vers
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-07-06
+
 ### Added
 
 - Public changelog baseline for future release tracking
+- Release notes for the approved `v0.1.0` documentation package
 
 ### Changed
 
-- Documented the repository as Experimental / Not Ready until the final GRS audit passes
-- Documented the `0.x` pre-release versioning policy and the `vMAJOR.MINOR.PATCH` Git tag format
+- Documented the repository as Experimental / Released with an approved `v0.1.0` baseline
+- Finalized the release documentation set across the README, changelog, and release notes
